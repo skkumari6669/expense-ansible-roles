@@ -10,20 +10,10 @@ tasks:
         state: started 
         enabled: yes
 
-    - name: remove the default content
-      ansible.builtin.file:
-        path: /usr/share/nginx/html
-        state: absent
-
-    - name: create html directory
-      ansible.builtin.file:
-        path: /usr/share/nginx/html
-        state: directory 
-
-    - name: download backend code
-      ansible.builtin.get_url: 
-        url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-        dest: /tmp/frontend.zip
+    - name: import tasks from common role
+      ansible.builtin.import_role:
+      name: common 
+      tasks_from: app-pre-req  
 
     - name: Extract the zip file
       ansible.builtin.unarchive:

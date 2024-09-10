@@ -1,4 +1,3 @@
-vars: 
-  mysql_root_password: ExpenseApp@1
-  login_host: mysql.devops81s.online
+  # mysql_root_password: ExpenseApp@1
+  # login_host: mysql.devops81s.online
   
