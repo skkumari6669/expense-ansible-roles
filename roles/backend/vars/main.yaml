@@ -1,0 +1,6 @@
+vars: 
+  mysql_root_password: ExpenseApp@1
+  login_host: mysql.devops81s.online
+  DB_HOST: mqsql.devops81s.online
+
+  
