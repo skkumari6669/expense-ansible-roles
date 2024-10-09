@@ -1,0 +1,19 @@
+- name: Install nginx and run # Install with root access
+  #hosts: all
+  hosts: nginx
+  become: yes # this means root access
+  serial: 3
+  tasks:
+    - name: Install nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present
+
+    - name: run the nginx service
+      ansible.builtin.service:
+        name: nginx
+        state: started   
+        enabled: yes 
+   
+
+   

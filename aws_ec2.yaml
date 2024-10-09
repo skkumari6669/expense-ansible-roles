@@ -1,0 +1,10 @@
+plugin: amazon.aws.aws_ec2
+region: 
+- us-east-1
+filters:
+ tag:Name: nginx  # server name(backend, frontend, mysql) which one you want to query for ip address 
+ instance-state-name: running
+hostnames:
+- private-ip-address
+compose:
+  ansible_host: private_ip_address
