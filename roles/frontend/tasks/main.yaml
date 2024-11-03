@@ -15,18 +15,20 @@ tasks:
       name: common 
       tasks_from: app-pre-req  
 
-    - name: Extract the zip file
-      ansible.builtin.unarchive:
-        src: /tmp/backend.zip
-        dest: /usr/share/nginx/html
-        remote_src: yes      
+    # - name: Extract the zip file
+    #   ansible.builtin.unarchive:
+    #     src: /tmp/backend.zip
+    #     dest: /usr/share/nginx/html
+    #     remote_src: yes      
 
     - name: copy expense conf 
       ansible.builtin.templates: 
-       src: expense.conf
+       src: expense.conf.j2
        dest: /etc/nginx/default.d/expense.conf  
+       notify: 
+       - Restart nginx
 
-    - name: restart nginx
-      ansible.builtin.service:
-        name: nginx
-        state: restarted   
+    # - name: restart nginx
+    #   ansible.builtin.service:
+    #     name: nginx
+    #     state: restarted   
